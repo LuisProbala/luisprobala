@@ -1,0 +1,554 @@
+
+
+
+// MAP FUNCTION
+function map(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+};
+
+
+// ABOUT HOVER ALL LI ANIMATION AFTER TIME
+$('.list li').mouseenter(function() {
+    var index = $(this).index();
+    $(this).delay(50 * index).queue(function() {
+        $(this).addClass('hover');
+    });
+}).mouseleave(function() {
+    $(this).removeClass('hover').dequeue();
+});
+
+
+// ADD FIGCATPION LINK THE CLASS "BUZZ"
+$(document).ready(function() {
+    $("figcaption a").addClass("buzz");
+    $(".facts li a").addClass("buzz");
+});
+
+
+// COPY PASTE PROJECLIST TITLE
+$(document).ready(function() {
+    $("h2").each(function() {
+        $(this).clone().insertAfter(this);
+    });
+});
+
+// SET FONT SIZE & LINE HEIGHT
+$(document).ready(fontsize);
+$(window).resize(fontsize);
+
+function fontsize() {
+    var margin = parseInt($('main').css('margin-top')) * 2;
+    var percent = 1 - map(margin, 0, $(window).width(), 0, 1);
+    $("[data-size]").each(function() {
+        var size = $(this).data('size') * percent;
+        $(this).css('font-size', size + 'vw');
+        $(this).css('line-height', size + 'vw');
+    });
+};
+
+
+// MOUSE MOVE 
+$("html").mousemove(function(event) {
+    var swidth = $(window).width();
+    var cursorX = event.pageX;
+    var transX = Math.round(map(cursorX, 0, swidth, -53, 100));
+    var transY = -50;
+    $('.projectlist li figure').css({
+        '-webkit-transform': 'translate( ' + transX + '%, ' + transY + '% )',
+        '-moz-transform': 'translate( ' + transX + '%, ' + transY + '% )',
+        '-ms-transform': 'translate( ' + transX + '%, ' + transY + '% )',
+        '-o-transform': 'translate( ' + transX + '%, ' + transY + '% )',
+        'transform': 'translate( ' + transX + '%, ' + transY + '% )',
+    });
+});
+
+
+// LIST ADD MORE
+$(document).ready(function() {
+    $(".listaddmore").each(function() {
+        if ( $(this).find("ul li").length > 15 ) {
+             $(this).find("ul").append('<li><a href="#" class="buzz more">read more</a></li>');
+
+            $(this).find(".more").click(function(event) {
+                event.preventDefault();
+                if($(this).parents(".listaddmore").hasClass("expand") ) {
+                    $(this).parents(".listaddmore").removeClass("expand");
+                    $(this).html("read more");
+                    $(this).parents(".listaddmore").css("background", "none");
+                } else {
+                    $(this).parents(".listaddmore").addClass("expand");
+                    $(this).html("read less");
+                }
+            });
+        }
+    });
+});
+
+
+
+
+
+
+
+
+//Slideshow
+$(document).ready(slideshow);
+$(window).resize(slideshow);
+$(document).mousemove(slideshow);
+
+$(".slider").wrapInner("<div class='sliderholder'></div>");
+
+function slideshow(e) {
+    $(".slider").mousemove(function() {
+
+        var imgnum = $(this).find("figure").length;
+        var imgwidth = $(this).find("figure").width();
+        var margin = parseInt($('main').css('margin-top'));
+        var sliderholderwidth = (imgnum * imgwidth) + ((imgnum - 1) * margin) + 2;
+        $(this).width(sliderholderwidth + "px");
+
+        var swidth = $(window).width();
+        if (swidth > 700) {
+            var cursorX = e.pageX || swidth / 3;
+            //console.log(cursorX);
+            var transXmax = sliderholderwidth - swidth + (2 * margin);
+            var transX = -map(cursorX, 0, swidth, 0, transXmax);
+            $(this).css({
+                '-webkit-transform': 'translate( ' + transX + 'px )',
+                '-moz-transform': 'translate( ' + transX + 'px )',
+                '-ms-transform': 'translate( ' + transX + 'px )',
+                '-o-transform': 'translate( ' + transX + 'px )',
+                'transform': 'translate( ' + transX + 'px  )',
+            });
+        };
+    });
+
+};
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all elements with class "filterDiv"
+    var previewDivs = document.querySelectorAll('.filterDiv');
+
+    // Iterate through each div and add event listeners
+    previewDivs.forEach(function (div) {
+        div.addEventListener('mouseover', function () {
+            // Get the id of the hovered div
+            var word = div.id;
+
+            // Select the figure with an id starting with the word and change its style
+            var matchingFigure = document.querySelector('figure[id^="' + word + '"]');
+            if (matchingFigure) {
+                 matchingFigure.style.display = 'block';
+            }
+        });
+
+        div.addEventListener('mouseout', function () {
+            // Get the id of the hovered div
+            var word = div.id;
+
+            // Select the figure with an id starting with the word and change its style
+            var matchingFigure = document.querySelector('figure[id^="' + word + '"]');
+            if (matchingFigure) {
+                matchingFigure.style.display = 'none';
+            }
+        });
+    });
+});
+
+
+
+
+
+
+
+
+// LAZY LOAD VIDEOS
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+    if ("IntersectionObserver" in window) {
+        var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(video) {
+                if (video.isIntersecting) {
+                    for (var source in video.target.children) {
+                        var videoSource = video.target.children[source];
+                        if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                            videoSource.src = videoSource.dataset.src;
+                        }
+                    }
+
+                    video.target.load();
+                    video.target.classList.remove("lazy");
+                    lazyVideoObserver.unobserve(video.target);
+                }
+            });
+        });
+
+        lazyVideos.forEach(function(lazyVideo) {
+            lazyVideoObserver.observe(lazyVideo);
+        });
+    }
+});
+
+
+
+
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+
+// toggle description on mobile
+function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+	
+	
+
+    var myCiep = document.getElementById("ciep-random");
+    var ciepArray = ["/img/ciep-preview/rand1.jpg", "/img/ciep-preview/rand2.jpg", "/img/ciep-preview/rand3.jpg", "/img/ciep-preview/rand4.jpg", "/img/ciep-preview/rand6.jpg", "/img/ciep-preview/rand5.jpg", "/img/ciep-preview/rand7.jpg", "/img/ciep-preview/rand8.jpg", "/img/ciep-preview/rand9.jpg", "/img/ciep-preview/rand10.jpg", "/img/ciep-preview/rand11.jpg", "/img/ciep-preview/rand12.jpg", "/img/ciep-preview/rand13.jpg", "/img/ciep-preview/rand14.jpg", "/img/ciep-preview/rand14.jpg", "/img/ciep-preview/rand15.jpg", "/img/ciep-preview/rand16.jpg", "/img/ciep-preview/rand17.jpg", "/img/ciep-preview/rand18.jpg", "/img/ciep-preview/rand19.jpg", "/img/ciep-preview/rand20.jpg", "/img/ciep-preview/rand21.jpg", "/img/ciep-preview/rand22.jpg", "/img/ciep-preview/rand23.jpg"];
+    var isIntervalRunning;
+    
+    function changeCiep() {
+        var imgIndex = getRandomInt(0, ciepArray.length);
+        myCiep.setAttribute("src", ciepArray[imgIndex]);
+    }
+    
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    
+    var intervalHandle = setInterval(changeCiep, 2000);
+
+    
+
+    
+    var myArbo = document.getElementById("arbo-random");
+    var arboArray = ["/img/arbo-preview/horsq_02.jpg", "/img/arbo-preview/vertsq_01.jpg", "/img/arbo-preview/horsq_03.jpg", "/img/arbo-preview/vertsq_02.jpg", "/img/arbo-preview/horsq_04.jpg", "/img/arbo-preview/vertsq_03.jpg", "/img/arbo-preview/horsq_05.jpg", "/img/arbo-preview/vertsq_04.jpg", "/img/arbo-preview/horsq_06.jpg", "/img/arbo-preview/vertsq_05.jpg", "/img/arbo-preview/horsq_07.jpg", "/img/arbo-preview/vertsq_06.jpg", "/img/arbo-preview/horsq_08.jpg", "/img/arbo-preview/vertsq_07.jpg", "/img/arbo-preview/horsq_09.jpg", "/img/arbo-preview/vertsq_08.jpg", "/img/arbo-preview/horsq_10.jpg", "/img/arbo-preview/vertsq_09.jpg", "/img/arbo-preview/horsq_11.jpg", "/img/arbo-preview/vertsq_10.jpg", "/img/arbo-preview/horsq_12.jpg", "/img/arbo-preview/vertsq_11.jpg"];
+    
+    function changeArbo() {
+        var imgIndex = getRandomInt(0, arboArray.length - 1); // generate a new random index
+        myArbo.setAttribute("src", arboArray[imgIndex]);
+    }
+    
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    var intervalHandle = setInterval(changeArbo, 1000);
+    
+
+
+
+  function showContent(element) {
+    var content = element.querySelector('.content');
+    var siblingImage = document.querySelector('.sibling-image');
+    
+    content.style.display = 'block';
+    siblingImage.style.display = 'block';
+  }
+
+  function hideContent(element) {
+    var content = element.querySelector('.content');
+    var siblingImage = document.querySelector('.sibling-image');
+    
+    content.style.display = 'none';
+    siblingImage.style.display = 'none';
+  }
+
+
+
+ 
+  font-family: "Reenie Beanie", cursive;
+  font-size: 2rem;
+    line-height:;
+    padding: 1rem;
+
+
+
+
+
+
+
+    #headerback-arbo {
+        background: none;
+       }
+       #headerback-arbo h2 {
+           color: white;
+           letter-spacing: normal;
+           font-family: "ApfelGrotezk", sans-serif;
+           font-weight: bold;
+          }
+
+          #arbo-header {
+            white-space: nowrap;
+            margin-top:;
+            width: calc(100vw - 40px);
+            padding-top:0px;
+            margin-bottom: 10px;
+        background:black;
+            text-align: center;
+            white-space:;
+            align-self: auto;
+            margin-left: 1%;
+            margin-top:0;
+            display: inline-block;
+        
+        }
+
+        .headerback{
+            width: calc(100vw - 40px);
+        }
+
+
+        
+@font-face {
+    font-family: "ApfelGrotezk";
+    src: url("assets/fonts/ApfelGrotezk-Fett.woff2") format("woff2"), url("assets/fonts/ABCOracleTriple-Bold.woff") format("woff"), url("assets/fonts/ABCOracleTriple-Bold.otf") format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "ApfelGrotezk";
+    src: url("assets/fonts/ApfelGrotezk-Regular.woff2") format("woff2"), url("assets/fonts/ABCOracleTriple-Regular.woff") format("woff"), url("assets/fonts/ABCOracleTriple-Regular.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Porpora";
+    src: url("assets/fonts/Porpora-Regular.woff2") format("woff2"), url("assets/fonts/ABCOracleTriple-Bold.woff") format("woff"), url("assets/fonts/ABCOracleTriple-Bold.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Reenie";
+    src: url("assets\fonts\ReenieBeanie-Regular.ttf") format("ttf");
+    font-weight: normal;
+}
+
+
+@font-face {
+    font-family: "Lucida Console";
+    src: url("assets\fonts\Lucida Console Regular.ttf") format("ttf");
+    font-weight: normal;
+}
+
+/* @font-face {
+    font-family: "ApfelGrotezk";
+    src: url("assets/fonts/ApfelGrotezk-Regular.woff2") format("woff2"), url("assets/fonts/ABCOracleTriple-Regular.woff") format("woff"), url("assets/fonts/ABCOracleTriple-Regular.otf") format("opentype");
+    font-weight: normal;
+}
+
+
+
+  .ciep-globo-manchete-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+ .ciep-globo-manchete-slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    position: absolute; .
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ciep-section-photogrid-five {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 20vh 20vh 20vh 20vh;
+    align-self: center;
+    row-gap: .5rem;
+    column-gap: .5rem;
+}
+
+.ciep-section-photogrid-five :nth-child(1){ 
+    grid-column: 1 / 2 ;
+    grid-row:  1 / 3;
+}
+
+.ciep-section-photogrid-five :nth-child(2){ 
+    grid-column: 2 / 3;
+    grid-row: 1 / 3 ;
+}
+
+.ciep-section-photogrid-five :nth-child(3){ 
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+}
+
+.ciep-section-photogrid-five  :nth-child(4){ 
+    grid-column: 2 / 3;
+    grid-row: 3 / 5;
+}
+
+.ciep-section-photogrid-five :nth-child(5){ 
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+}
+
+.ciep-section-photogrid-item-large img {
+    width: auto;
+    object-fit: contain;
+    height: 60vh;
+}
+
+.ciep-photogrid-textframe-1, .ciep-photogrid-textframe-2 {
+    grid-column: 3 / 4;
+    grid-row: 5 / 6;
+
+    border: solid black 1px;
+    background: white;
+    width: 40%;
+    padding: 2rem;
+    text-align: justify;
+    text-justify: auto;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 600px;
+    height: max-content;
+    justify-self: end;
+}
+
+.ciep-photogrid-textframe-1 p, .ciep-photogrid-textframe-2 p {
+    font-family: 'Lucida Console', sans-serif;
+    font-size: 1.2vh;
+    color: black;
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+
+
+
+
+
+    background-image: url("data:image/svg+xml,%3Csvg width='48' height='32' viewBox='0 0 48 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M27 32c0-3.314 2.686-6 6-6 5.523 0 10-4.477 10-10S38.523 6 33 6c-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 6.627 0 12 5.373 12 12s-5.373 12-12 12c-2.21 0-4 1.79-4 4h-2zm-6 0c0-3.314-2.686-6-6-6-5.523 0-10-4.477-10-10S9.477 6 15 6c3.314 0 6-2.686 6-6h-2c0 2.21-1.79 4-4 4C8.373 4 3 9.373 3 16s5.373 12 12 12c2.21 0 4 1.79 4 4h2z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: #aa8f75;
+    background-blend-mode: soft-light;
+
+
+
+    
+
+
+
+    
+
+.nycte-headerback-vertical-fallback {
+  box-sizing: border-box;
+  text-align: center;
+  height: 100%;
+  white-space: nowrap;
+
+  position: fixed;
+  z-index: 1;
+
+}
+
+#nycte-headerback-vertical {
+    
+}
+
+#nycte-headerback-vertical h2 {
+    color: white;
+  letter-spacing: normal;
+  font-family: "ApfelGrotezk", sans-serif;
+  font-weight: bold;
+  font-size: 12vh;
+  background: #0000007d;
+}
+
+
+#nycte-headerback-vertical h2:nth-child(2) {
+    display: none; 
+}
+
+@supports (writing-mode: sideways-lr) {
+    /* Use sideways-lr if supported */
+    .nycte-headerback-vertical-fallback {
+        writing-mode: sideways-lr;
+      }
+    }
+    
+    @supports not (writing-mode: sideways-lr) {
+      /* Fallback for browsers not supporting sideways-lr */
+      .nycte-headerback-vertical-fallback {
+          transform: rotate(-90deg);
+          transform-origin: left top;
+          white-space: nowrap;
+          position: fixed;
+          top: 100%;
+          width: 100vh;
+      }
+    }
+  
+   

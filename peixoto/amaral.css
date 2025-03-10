@@ -1,0 +1,27 @@
+#canvasWrapper {
+position: relative;
+}
+#imageCanvas {
+position: absolute;
+top: 50px;
+left: 0;
+}
+#rectanglesCanvas {
+position: absolute;
+top: 50px;
+left: 0;
+}
+#sliderWrapper {
+margin-top: 20px;
+}
+#sliderWrapper label {
+display: inline-block;
+width: 50px;
+text-align: right;
+margin-right: 10px;
+}
+#sliderWrapper input[type="range"] {
+display: inline-block;
+width: 100px;
+vertical-align: middle;
+}

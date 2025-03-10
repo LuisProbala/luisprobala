@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="css/grid-obsv.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans|Alegreya+Sans+SC|Alegreya+SC|Markazi+Text&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Bootstrap CSS -->
+
+<title>Observatorio-CIEPs</title>
+
+<!-- Optional JavaScript -->
+
+
+</head>
+
+<body>
+
+
+<div class="nav-wrapper">
+    <!--
+  <div class="back">
+   <img src="obsrv-29" alt="">
+  </div>
+
+  <!-- Images used to open the lightbox -->
+<div class="sticky-wrapper">
+  <a class="next-button" href="../index.html">
+    <svg enable-background="new 0 0 489.2 489.2" height=30 version="1.1" viewBox="0 0 489.2 489.2" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/><dc:title/></cc:Work></rdf:RDF></metadata><g fill="#fff"><rect x="267.5" y="267.5" width="221.7" height="221.7"/><path d="M0,0v489.2h248.1V257.8c0-5.4,4.3-9.7,9.7-9.7h231.4V0H0z M179,177l-63.7-63.7V163H85.8V62.9H186v29.5h-49.7l64.1,64.1     L179,177z"/></g></svg>
+  </a>
+  <a class="back-button" href="../index.html">
+    <svg enable-background="new 0 0 489.2 489.2" height=30 version="1.1" viewBox="0 0 489.2 489.2" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/><dc:title/></cc:Work></rdf:RDF></metadata><g fill="#fff"><rect x="267.5" y="267.5" width="221.7" height="221.7"/><path d="M0,0v489.2h248.1V257.8c0-5.4,4.3-9.7,9.7-9.7h231.4V0H0z M179,177l-63.7-63.7V163H85.8V62.9H186v29.5h-49.7l64.1,64.1     L179,177z"/></g></svg>
+  </a>
+  <a class="button-fullscreen" href="#" onclick="openFullscreen()">
+    <svg enable-background="new 0 0 489.2 489.2" height=30 version="1.1" viewBox="0 0 489.2 489.2" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/><dc:title/></cc:Work></rdf:RDF></metadata><g fill="#fff"><rect x="267.5" y="267.5" width="221.7" height="221.7"/><path d="M0,0v489.2h248.1V257.8c0-5.4,4.3-9.7,9.7-9.7h231.4V0H0z M179,177l-63.7-63.7V163H85.8V62.9H186v29.5h-49.7l64.1,64.1     L179,177z"/></g></svg>
+</a>
+
+<a href="../cieps.html" class="ciep-button-observatory-back">
+  <div id="ciep-button-observatory-back">BACK TO MAIN PAGE</div>
+</a>
+</div>
+
+  <div class="thegrid">
+    <div class="column" tabindex="0" onkeydown="openModal();currentSlide(1)">
+      <img src="img/obsrv/ciep1.jpg" onclick="openModal();currentSlide(1)" class="image-small"">
+    </div>
+    <div class="column" tabindex="0"  onkeydown="openModal();currentSlide(2)">
+      <img src="img/obsrv/ciep2.jpg" onclick="openModal();currentSlide(2)" class="image-small"">
+    </div>
+    <div class="column" tabindex="0">
+      <img src="img/obsrv/ciep3.jpg" onclick="openModal();currentSlide(3)" class="image-small"">
+    </div>
+    <div class="column" tabindex="0">
+      <img src="img/obsrv/ciep4.jpg" onclick="openModal();currentSlide(4)" class="image-small"">
+    </div>
+    <div class="" tabindex="0" id="open-pocket" onclick="openPocket()">
+    </div>
+      <div class="pocket-wrapper">
+        <div class="pocket" id="close-pocket">
+        </div>
+      </div>
+    <div class="column" tabindex="0">
+      <img src="img/obsrv/ciep5.jpg" onclick="openModal();currentSlide(5)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep6.jpg" onclick="openModal();currentSlide(6)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep7.jpg" onclick="openModal();currentSlide(7)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep8.jpg" onclick="openModal();currentSlide(8)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep9.jpg" onclick="openModal();currentSlide(9)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep10.jpg" onclick="openModal();currentSlide(10)" class="image-small" id="pic10"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep11.jpg" onclick="openModal();currentSlide(11)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep12.jpg" onclick="openModal();currentSlide(12)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep13.jpg" onclick="openModal();currentSlide(13)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep14alt.jpg" onclick="openModal();currentSlide(14)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep15.jpg" onclick="openModal();currentSlide(15)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep16.jpg" onclick="openModal();currentSlide(16)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep17.jpg" onclick="openModal();currentSlide(17)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep18.jpg" onclick="openModal();currentSlide(18)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep19.jpg" onclick="openModal();currentSlide(19)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep20.jpg" onclick="openModal();currentSlide(20)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep21.jpg" onclick="openModal();currentSlide(21)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep22.jpg" onclick="openModal();currentSlide(22)" class="image-small"">
+    </div>
+
+    <div class="column">
+      <img src="img/obsrv/ciep24.jpg" onclick="openModal();currentSlide(23)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep25.jpg" onclick="openModal();currentSlide(24)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep27.jpg" onclick="openModal();currentSlide(25)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep26.jpg" onclick="openModal();currentSlide(26)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep29.jpg" onclick="openModal();currentSlide(27)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep28.jpg" onclick="openModal();currentSlide(28)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep30.jpg" onclick="openModal();currentSlide(29)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep31.jpg" onclick="openModal();currentSlide(30)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep32.jpg" onclick="openModal();currentSlide(31)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep33.jpg" onclick="openModal();currentSlide(32)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep35.jpg" onclick="openModal();currentSlide(33)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep34.jpg" onclick="openModal();currentSlide(34)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep36.jpg" onclick="openModal();currentSlide(35)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep37.jpg" onclick="openModal();currentSlide(36)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep39.jpg" onclick="openModal();currentSlide(37)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep38.jpg" onclick="openModal();currentSlide(38)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep40.jpg" onclick="openModal();currentSlide(39)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep61.jpg" onclick="openModal();currentSlide(40)" class="image-small"">
+    </div>
+
+    <div class="column">
+      <img src="img/obsrv/ciep42.jpg" onclick="openModal();currentSlide(41)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep41.jpg" onclick="openModal();currentSlide(42)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep43.jpg" onclick="openModal();currentSlide(43)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep44.jpg" onclick="openModal();currentSlide(44)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep45.jpg" onclick="openModal();currentSlide(45)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep46.jpg" onclick="openModal();currentSlide(46)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep47.jpg" onclick="openModal();currentSlide(47)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep48.jpg" onclick="openModal();currentSlide(48)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep49.jpg" onclick="openModal();currentSlide(49)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep50.jpg" onclick="openModal();currentSlide(50)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep52+.jpg" onclick="openModal();currentSlide(51)" class="image-small"">
+    </div>
+
+
+    <div class="column">
+      <img src="img/obsrv/ciep51.jpg" onclick="openModal();currentSlide(52)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep53.jpg" onclick="openModal();currentSlide(53)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep54.jpg" onclick="openModal();currentSlide(54)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep55.jpg" onclick="openModal();currentSlide(55)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep56.jpg" onclick="openModal();currentSlide(56)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep57+.png" onclick="openModal();currentSlide(57)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep58.jpg" onclick="openModal();currentSlide(58)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep59.jpg" onclick="openModal();currentSlide(59)" class="image-small"">
+    </div>
+    <div class="column">
+      <img src="img/obsrv/ciep60.jpg" onclick="openModal();currentSlide(60)" class="image-small"">
+    </div>
+
+   </div>
+
+
+
+
+     <!-- The Modal/Lightbox -->
+     <div id="myModal" class="modal" tabindex="0">
+       <div class="back" alt="">
+         <img src="img/back.png" alt="" onclick="closeModal()">
+       </div>
+       <span class="close cursor" onclick="closeModal()">&times;</span>
+       <div class="modal-content">
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep1.jpg" style="width:100%">
+           <div class="numbertext">CIEP 124 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep2.jpg" style="width:100%">
+           <div class="numbertext">CIEP 123 / 123</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep3.jpg" style="width:100%">
+           <div class="numbertext">CIEP 322 / 123</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep4.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep5.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 473</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep6.jpg" style="width:100%">
+           <div class="numbertext">CIEP 123 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep7.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 480</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep8.jpg" style="width:100%">
+           <div class="numbertext">CIEP 473 / 480</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep9.jpg" style="width:100%">
+           <div class="numbertext">xx</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep10.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep11.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep12.jpg" style="width:100%">
+           <div class="numbertext">CIEP 124 / 322</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep13.jpg" style="width:100%">
+           <div class="numbertext">CIEP 322 / 322</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep14alt.jpg" style="width:100%">
+           <div class="numbertext">CIEP 473 / 473</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep15.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep16.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep17.jpg" style="width:100%">
+           <div class="numbertext">CIEP 123 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep18.jpg" style="width:100%">
+           <div class="numbertext">CIEP 322 / 322</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep19.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 124</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep20.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 124</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep21.jpg" style="width:100%">
+           <div class="numbertext">CIEP 480 / 322</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep22.jpg" style="width:100%">
+           <div class="numbertext">CIEP </div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep24.jpg" style="width:100%">
+           <div class="numbertext">CIEP 322 / 124</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep25.jpg" style="width:100%">
+           <div class="numbertext">CIEP 124 / 145</div>
+         </div>
+         <div class="mySlides">
+           <img src="img/obsrv/ciep27.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 480</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep26.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 480</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep29.jpg" style="width:100%">
+           <div class="numbertext">CIEP 480 / 480</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep28.jpg" style="width:100%">
+           <div class="numbertext">CIEP 322 / 123</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep30.jpg" style="width:100%">
+           <div class="numbertext">CIEP 145 / 145</div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep31.jpg" style="width:100%">
+           <div class="numbertext"></div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep32.jpg" style="width:100%">
+           <div class="numbertext"></div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep33.jpg" style="width:100%">
+           <div class="numbertext"></div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep35.jpg" style="width:100%">
+           <div class="numbertext"></div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep34.jpg" style="width:100%">
+           <div class="numbertext"></div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep36.jpg" style="width:100%">
+           <div class="numbertext"></div>
+         </div>
+
+         <div class="mySlides">
+           <img src="img/obsrv/ciep37.jpg" style="width:100%">
+           <div class="numbertext"></div>
+         </div>
+
+
+
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep39.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep38.jpg" style="width:100%">
+                    <div class="numbertext">CIEP 473 / 322</div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep40.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep61.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep42.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep41.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep43.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep44.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep45.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep46.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep47.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep48.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep49.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep50.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep52.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep51.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep53.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep54.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep55.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep56.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep57.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep58.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep59.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep60.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="img/obsrv/ciep61.jpg" style="width:100%">
+                    <div class="numbertext"></div>
+                  </div>
+
+
+
+         <!-- Next/previous controls -->
+         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+   </div>
+   </div>
+
+
+
+</div>
+
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/grid-obsrv.js"></script>
+     </body>
+     </html>

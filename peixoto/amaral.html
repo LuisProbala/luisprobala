@@ -1,0 +1,41 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Nycteroy</title>
+    <meta name="description" content="Luis Probala — Art and Urban Research">
+    <meta name="author" content="Luis Probala">
+    <meta name="keywords" content="">
+
+    <meta property="og:title" content="Luis Probala — Art and Urban Research">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="Art and Urban Research">
+    <meta property="og:image" content="image.png">
+
+    <link href="amaral.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<input type="file" id="imageInput" accept="image/*">
+<div id="canvasWrapper">
+  <canvas id="imageCanvas"></canvas>
+  <canvas id="rectanglesCanvas"></canvas>
+</div>
+<div id="sliderWrapper">
+  <label for="rowsSlider">Rows:</label>
+  <input type="range" id="rowsSlider" min="1" max="20" value="10">
+  <label for="columnsSlider">Columns:</label>
+  <input type="range" id="columnsSlider" min="1" max="20" value="6">
+  <label for="gapSlider">Gap:</label>
+  <input type="range" id="gapSlider" min="0" max="50" value="5">
+  <label for="widthSlider">Width:</label>
+  <input type="range" id="widthSlider" min="1" max="100" value="45">
+  <label for="heightSlider">Height:</label>
+  <input type="range" id="heightSlider" min="1" max="100" value="30">
+</div>
+
+<script src="amaral.js"></script>
+</body>
+</html>

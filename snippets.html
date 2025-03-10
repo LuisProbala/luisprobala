@@ -1,0 +1,278 @@
+snippets 
+
+
+
+
+
+
+🡆 ↪ 
+
+
+
+srcset="https://www.lucas-hesse.de/wp-content/uploads/2021/12/01_Move-to-Zero_Studio-Specht_Nike-Dazed_Motion-Design_Kinetic-Typography_Studio-Lucas-Hesse_Hamburg_09.jpg 800w, https://www.lucas-hesse.de/wp-content/uploads/2021/12/01_Move-to-Zero_Studio-Specht_Nike-Dazed_Motion-Design_Kinetic-Typography_Studio-Lucas-Hesse_Hamburg_09-300x300.jpg 300w, https://www.lucas-hesse.de/wp-content/uploads/2021/12/01_Move-to-Zero_Studio-Specht_Nike-Dazed_Motion-Design_Kinetic-Typography_Studio-Lucas-Hesse_Hamburg_09-150x150.jpg 150w, https://www.lucas-hesse.de/wp-content/uploads/2021/12/01_Move-to-Zero_Studio-Specht_Nike-Dazed_Motion-Design_Kinetic-Typography_Studio-Lucas-Hesse_Hamburg_09-768x768.jpg 768w, https://www.lucas-hesse.de/wp-content/uploads/2021/12/01_Move-to-Zero_Studio-Specht_Nike-Dazed_Motion-Design_Kinetic-Typography_Studio-Lucas-Hesse_Hamburg_09-16x16.jpg 16w" 
+
+
+
+<div class="col-3 slider " style="width: 1778px; transform: translate(-198.205px);"><div class="sliderholder">
+    
+    <figure>
+<img src="" class="attachment-large size-large" alt="" decoding="async" loading="lazy" 
+sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">                  
+<figcaption class="transistion"><p><a href="" target="_blank" class="buzz">...</a></p></figcaption>
+    </figure>
+
+    <figure>
+<img src="" class="attachment-large size-large" alt="" decoding="async" loading="lazy" 
+sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">                  
+<figcaption class="transistion"><p><a href="" target="_blank" class="buzz">...</a></p></figcaption>
+    </figure> 
+
+    <figure>
+<img src="" class="attachment-large size-large" alt="" decoding="async" loading="lazy" 
+sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">                  
+<figcaption class="transistion"><p><a href="" target="_blank" class="buzz">...</a></p></figcaption>
+    </figure>
+
+    <figure>
+<img src="" class="attachment-large size-large" alt="" decoding="async" loading="lazy" 
+sizes="(max-width: 800px) 100vw, 800px" width="800" height="800">                  
+<figcaption class="transistion"><p><a href="" target="_blank" class="buzz">...</a></p></figcaption>
+    </figure> 
+
+<div class="clear"></div>
+</div></div>
+
+
+
+var imgArray = [
+'arbo/img/horsq_04.jpg',
+'arbo/img/vertsq_04.jpg',
+'arbo/img/horsq_05.jpg',
+'arbo/img/vertsq_05.jpg',
+];
+var curIndex = 0;
+var imgDuration = 5000;
+
+function slideShow() {
+document.getElementById('arbo-slide-3').src = imgArray[curIndex];
+curIndex++;
+if (curIndex == imgArray.length) { curIndex = 0; }
+setTimeout("slideShow()", imgDuration);
+}
+slideShow();
+
+
+<!-- tooltippiIT -->
+I graduated as a new media artist in Poland - since work with photography, graphic+web design, carpentry, construction (conventional and bio), urban studies and art-education.<br><br>I care for my art projects to be strongly contextual (informed by research and/or site-specific), make use of a variety of medias (less bc of multimedial aesthetics, more bc of transdiciplinary approaches), propagate media literacy (ideally with a transparent use of technology and a propaedeutical process), 
+
+
+
+
+
+
+.column:hover {
+    grid-area: span 2/span 2
+    }
+    
+    .column-last:hover {
+        grid-row: 1 / span 2;
+        grid-column: 3 / span 2;
+      }
+
+
+      var clickedColumn = null;
+      var timeoutId = null;
+      
+      function handleClick() {
+        if (timeoutId !== null) {
+          clearTimeout(timeoutId);
+          timeoutId = null;
+          return;
+        }
+        
+        if (clickedColumn !== null) {
+          clickedColumn.classList.remove('span');
+        }
+        
+        clickedColumn = this;
+        clickedColumn.classList.add('span');
+        
+        var rect = clickedColumn.getBoundingClientRect();
+        if (rect.top < 0) {
+          window.scrollBy(0, rect.top);
+        } else if (rect.bottom > window.innerHeight) {
+          window.scrollBy(0, rect.bottom - window.innerHeight);
+        }
+        clickedColumn.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+      
+      function handleMouseover() {
+        var rect = this.getBoundingClientRect();
+        if (rect.top < 0) {
+          window.scrollBy(0, rect.top);
+        } else if (rect.bottom > window.innerHeight) {
+          window.scrollBy(0, rect.bottom - window.innerHeight);
+        }
+        this.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+      
+      var columns = document.querySelectorAll('.column');
+      for (var i = 0; i < columns.length; i++) {
+        var column = columns[i];
+        column.addEventListener('click', function(event) {
+          event.preventDefault();
+          timeoutId = setTimeout(handleClick.bind(this), 300);
+        });
+        column.addEventListener('mouseover', handleMouseover);
+      }
+
+
+
+
+
+
+      
+   let clickedColumn = null;
+
+   function handleClick() {
+     // remove .span class from previously clicked cell
+     if (clickedColumn) {
+       clickedColumn.classList.remove('span');
+       const index = Array.from(clickedColumn.parentNode.children).indexOf(clickedColumn) + 1;
+       if (index % 4 === 0) {
+         clickedColumn.style.gridColumn = '';
+         clickedColumn.style.gridRow = '';
+       }
+     }
+   
+     // add .span class to clicked cell
+     if (clickedColumn !== this) {
+       clickedColumn = this;
+       clickedColumn.classList.add('span');
+       const index = Array.from(clickedColumn.parentNode.children).indexOf(clickedColumn) + 1;
+       if (index % 4 === 0) {
+         const row = Math.ceil(index / 4);
+         clickedColumn.style.gridColumn = '3/5';
+         clickedColumn.style.gridRow = `${row}/${row + 2}`;
+       }
+     }
+   
+     // scroll to clicked cell
+     var rect = clickedColumn.getBoundingClientRect();
+     window.scrollBy(
+       0,
+       rect.top < 0
+         ? rect.top
+         : rect.bottom > window.innerHeight
+         ? rect.bottom - window.innerHeight
+         : 0
+     );
+     clickedColumn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+   }
+   
+   function handleMouseover() {
+     var rect = this.getBoundingClientRect();
+     window.scrollBy(
+       0,
+       rect.top < 0
+         ? rect.top
+         : rect.bottom > window.innerHeight
+         ? rect.bottom - window.innerHeight
+         : 0
+     );
+     this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+   }
+   
+   document.querySelectorAll('.column').forEach(column => {
+     column.addEventListener('click', handleClick);
+     column.addEventListener('mouseover', handleMouseover);
+   });
+   
+  let clickedColumn = null;
+
+function handleClick() {
+  if (clickedColumn) {
+    clickedColumn.classList.remove('span');
+    clickedColumn.style.gridColumn = '';
+    clickedColumn.style.gridRow = '';
+  }
+
+  clickedColumn = this;
+  clickedColumn.classList.add('span');
+
+  const index = Array.from(clickedColumn.parentNode.children).indexOf(clickedColumn) + 1;
+  if (index % 4 === 0) {
+    const row = Math.ceil(index / 4);
+    clickedColumn.style.gridColumn = '3/5';
+    clickedColumn.style.gridRow = `${row}/${row + 2}`;
+  }
+
+  clickedColumn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function handleMouseover() {
+  this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+document.querySelectorAll('.column').forEach(column => {
+  column.addEventListener('click', handleClick);
+  column.addEventListener('mouseover', handleMouseover);
+});
+   
+
+
+
+<!-- simplified of the upper -->
+
+  let clickedColumn = null;
+
+function handleClick() {
+  if (clickedColumn) {
+    clickedColumn.classList.remove('span');
+    clickedColumn.style.gridColumn = '';
+    clickedColumn.style.gridRow = '';
+  }
+
+  clickedColumn = this;
+  clickedColumn.classList.add('span');
+
+  const index = Array.from(clickedColumn.parentNode.children).indexOf(clickedColumn) + 1;
+  if (index % 4 === 0) {
+    const row = Math.ceil(index / 4);
+    clickedColumn.style.gridColumn = '3/5';
+    clickedColumn.style.gridRow = `${row}/${row + 2}`;
+  }
+
+  clickedColumn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function handleMouseover() {
+  this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+document.querySelectorAll('.column').forEach(column => {
+  column.addEventListener('click', handleClick);
+  column.addEventListener('mouseover', handleMouseover);
+});
+
+
+
+
+.column:hover {
+  outline: solid rgba(255,255,255,.8) 1px;
+outline-offset: -16px;
+}
+
+.column:hover ::after  {
+  content: "";
+  outline: double rgba(255,255,255,.8) 2px;
+outline-offset: -12px;
+z-index: 3;
+position: absolute;
+}

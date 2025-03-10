@@ -1,0 +1,75 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  /* Container: Split Left and Right Sections */
+  .container {
+    display: flex;
+    width: 90%;
+    height: 90%;
+  }
+  
+  /* Left Section: Grid and Instructions */
+  .grid-section {
+    width: 50%; /* Take up the left half */
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #000; /* Vertical dividing line */
+    padding: 1rem;
+  }
+  
+  /* Grid Container */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    width: 25vw;
+    aspect-ratio: 1;
+    background-color: #000;
+
+  }
+  
+  /* Grid Items */
+  .grid-link {
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    aspect-ratio: 1;
+  }
+  
+  /* Instructions Below the Grid */
+  .instructions {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Right Section: Content */
+  .content-section {
+    width: 50%; /* Take up the right half */
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  
+  #content-placeholder {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    background-color: #fff;
+    height: 100%; /* Stretch to fill available space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
