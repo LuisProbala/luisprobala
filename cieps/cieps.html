@@ -370,6 +370,24 @@
 
 
    <script>
+
+
+
+document.getElementById('ciep-headerback-sub-subtitle').addEventListener('wheel', function(event) {
+    // Check if the wheel scroll is happening within the box
+    if (this.scrollHeight > this.clientHeight) {
+        // Prevent the page from scrolling
+        event.preventDefault();
+
+        // Scroll the box itself
+        if (event.deltaY !== 0) {
+            this.scrollTop += event.deltaY;
+        }
+    }
+}, { passive: false });  // `passive: false` allows preventDefault() to work
+
+
+
     
     window.onload = function() {
   console.log('JavaScript is loaded correctly.');
@@ -481,15 +499,6 @@ function showSlides(slides, slideIndex, cycle) {
 
     }, cycle);
 }
-
-
-var item = document.getElementById("ciep-body");
-
-  window.addEventListener("wheel", function (e) {
-    if (e.deltaY > 0) item.scrollLeft += 150;
-    else item.scrollLeft -= 150;
-  });
-
 
 
 
