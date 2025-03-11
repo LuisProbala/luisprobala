@@ -214,83 +214,92 @@
         </main>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const imageContainers = document.querySelectorAll(".nycte-scroll-singlepage");
-        const leftArrow = document.querySelector(".nycte-arrow-left");
-        const rightArrow = document.querySelector(".nycte-arrow-right");
-        const scrollContainer = document.querySelector(".nycte-scroll-container");
-        const scrollPages = document.querySelectorAll(".nycte-scroll-singlepage");
-    
-        let observer;
-    
-        function getThreshold() {
-            const aspectRatio = window.innerWidth / window.innerHeight;
-            return aspectRatio > 2 ? 0.98 : 0.75;
-        }
-    
-        function onIntersection(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    document.querySelector("#active-img")?.removeAttribute("id");
-                    entry.target.setAttribute("id", "active-img");
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageContainers = document.querySelectorAll(".nycte-scroll-singlepage");
+                const leftArrow = document.querySelector(".nycte-arrow-left");
+                const rightArrow = document.querySelector(".nycte-arrow-right");
+                const scrollContainer = document.querySelector(".nycte-scroll-container");
+                const scrollPages = document.querySelectorAll(".nycte-scroll-singlepage");
+            
+                let observer;
+            
+                // Adjusted getThreshold to be more lenient based on aspect ratio
+                function getThreshold() {
+                    const aspectRatio = window.innerWidth / window.innerHeight;
+                    if (aspectRatio > 2) {
+                        return 0.85;  // More lenient for ultra-wide screens
+                    } else if (aspectRatio > 1.5) {
+                        return 0.9;   // For standard screens, slightly lenient
+                    } else {
+                        return 0.95;  // Narrow screens, almost the whole image needs to be visible
+                    }
                 }
+            
+                function onIntersection(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            document.querySelector("#active-img")?.removeAttribute("id");
+                            entry.target.setAttribute("id", "active-img");
+                        }
+                    });
+                }
+            
+                function createObserver() {
+                    const observerOptions = {
+                        root: null,
+                        threshold: getThreshold()
+                    };
+            
+                    if (observer) observer.disconnect();
+            
+                    observer = new IntersectionObserver(onIntersection, observerOptions);
+            
+                    imageContainers.forEach(container => observer.observe(container));
+                }
+            
+                // Initially create the observer
+                createObserver();
+            
+                if (window.scrollX > 0 || window.scrollY > 0) {
+                    observer.observe(imageContainers[0]);
+                }
+            
+                function scrollNext() {
+                    const scrollAmount = calculateScrollAmount();
+                    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            
+                function scrollPrev() {
+                    const scrollAmount = calculateScrollAmount();
+                    scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                }
+            
+                function calculateScrollAmount() {
+                    const activeImg = document.querySelector("#active-img");
+                    if (!activeImg) return scrollPages[0].offsetWidth;
+            
+                    return activeImg.offsetWidth; // Ensures exact scroll per image
+                }
+            
+                scrollContainer.addEventListener('scroll', function () {
+                    leftArrow.style.display = scrollContainer.scrollLeft === 0 ? 'none' : 'block';
+                    rightArrow.style.display = (scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth) ? 'none' : 'block';
+                });
+            
+                if (scrollContainer.scrollLeft === 0) leftArrow.style.display = 'none';
+            
+                rightArrow.addEventListener('click', scrollNext);
+                leftArrow.addEventListener('click', scrollPrev);
+            
+                // Reinitialize the observer when window is resized
+                window.addEventListener('resize', function() {
+                    createObserver();  // Reinitialize the observer on window resize
+                    setTimeout(createObserver, 100); // Optional: Add a small delay to allow the layout to adjust
+                });
             });
-        }
-    
-        function createObserver() {
-            const observerOptions = {
-                root: null,
-                threshold: getThreshold()
-            };
-    
-            if (observer) observer.disconnect();
-    
-            observer = new IntersectionObserver(onIntersection, observerOptions);
-    
-            imageContainers.forEach(container => observer.observe(container));
-        }
-    
-        createObserver();
-    
-        if (window.scrollX > 0 || window.scrollY > 0) {
-            observer.observe(imageContainers[0]);
-        }
-    
-        function scrollNext() {
-            const scrollAmount = calculateScrollAmount();
-            scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
-    
-        function scrollPrev() {
-            const scrollAmount = calculateScrollAmount();
-            scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        }
-    
-        function calculateScrollAmount() {
-            const activeImg = document.querySelector("#active-img");
-            if (!activeImg) return scrollPages[0].offsetWidth;
-    
-            return activeImg.offsetWidth; // Ensures exact scroll per image
-        }
-    
-        scrollContainer.addEventListener('scroll', function () {
-            leftArrow.style.display = scrollContainer.scrollLeft === 0 ? 'none' : 'block';
-            rightArrow.style.display = (scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth) ? 'none' : 'block';
-        });
-    
-        if (scrollContainer.scrollLeft === 0) leftArrow.style.display = 'none';
-    
-        rightArrow.addEventListener('click', scrollNext);
-        leftArrow.addEventListener('click', scrollPrev);
-    
-        window.addEventListener('resize', createObserver);
-    });
-
-    
-
-</script>
-
+        </script>
+        
 
 
         </body>
