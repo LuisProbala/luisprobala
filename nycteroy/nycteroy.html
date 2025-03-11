@@ -215,118 +215,79 @@
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const imageContainers = document.querySelectorAll(".nycte-scroll-singlepage");
-    const leftArrow = document.querySelector(".nycte-arrow-left");
-    const rightArrow = document.querySelector(".nycte-arrow-right");
-    const scrollContainer = document.querySelector(".nycte-scroll-container");
-    const scrollPages = document.querySelectorAll(".nycte-scroll-singlepage");
-
-    let observer; // Declare observer variable
-
-    // Function to get appropriate threshold based on aspect ratio
-    function getThreshold() {
-        const aspectRatio = window.innerWidth / window.innerHeight;
-        return aspectRatio > 2 ? 0.98 : 0.85;  // Use 98% for wide screens, otherwise 85%
-    }
-
-    // Function to handle IntersectionObserver callback
-    function onIntersection(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                document.querySelector("#active-img")?.removeAttribute("id");
-                entry.target.setAttribute("id", "active-img");
-            }
+    document.addEventListener("DOMContentLoaded", function () {
+        const imageContainers = document.querySelectorAll(".nycte-scroll-singlepage");
+        const leftArrow = document.querySelector(".nycte-arrow-left");
+        const rightArrow = document.querySelector(".nycte-arrow-right");
+        const scrollContainer = document.querySelector(".nycte-scroll-container");
+        const scrollPages = document.querySelectorAll(".nycte-scroll-singlepage");
+    
+        let observer;
+    
+        function getThreshold() {
+            const aspectRatio = window.innerWidth / window.innerHeight;
+            return aspectRatio > 2 ? 0.98 : 0.85;
+        }
+    
+        function onIntersection(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelector("#active-img")?.removeAttribute("id");
+                    entry.target.setAttribute("id", "active-img");
+                }
+            });
+        }
+    
+        function createObserver() {
+            const observerOptions = {
+                root: null,
+                threshold: getThreshold()
+            };
+    
+            if (observer) observer.disconnect();
+    
+            observer = new IntersectionObserver(onIntersection, observerOptions);
+    
+            imageContainers.forEach(container => observer.observe(container));
+        }
+    
+        createObserver();
+    
+        if (window.scrollX > 0 || window.scrollY > 0) {
+            observer.observe(imageContainers[0]);
+        }
+    
+        function scrollNext() {
+            const scrollAmount = calculateScrollAmount();
+            scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    
+        function scrollPrev() {
+            const scrollAmount = calculateScrollAmount();
+            scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+    
+        function calculateScrollAmount() {
+            const activeImg = document.querySelector("#active-img");
+            if (!activeImg) return scrollPages[0].offsetWidth;
+    
+            return activeImg.offsetWidth; // Ensures exact scroll per image
+        }
+    
+        scrollContainer.addEventListener('scroll', function () {
+            leftArrow.style.display = scrollContainer.scrollLeft === 0 ? 'none' : 'block';
+            rightArrow.style.display = (scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth) ? 'none' : 'block';
         });
-    }
-
-    // Function to create and set up the observer
-    function createObserver() {
-        const observerOptions = {
-            root: null,
-            threshold: getThreshold() // Dynamically calculate the threshold
-        };
-
-        // Disconnect the previous observer if it exists
-        if (observer) {
-            observer.disconnect();
-        }
-
-        // Create a new IntersectionObserver with the updated threshold
-        observer = new IntersectionObserver(onIntersection, observerOptions);
-
-        // Observe each image container again
-        imageContainers.forEach(container => {
-            observer.observe(container);
-        });
-    }
-
-    // Call createObserver initially to set up observer
-    createObserver();
-
-    if (window.scrollX > 0 || window.scrollY > 0) {
-        const firstImageContainer = imageContainers[0];
-        observer.observe(firstImageContainer);
-    }
-
-    // Function to handle scrolling to the next image
-    function scrollNext() {
-        const scrollAmount = calculateScrollAmount();
-        scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-
-    // Function to handle scrolling to the previous image
-    function scrollPrev() {
-        const scrollAmount = calculateScrollAmount();
-        scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    }
-
-    // Calculate the scroll amount based on aspect ratio
-    function calculateScrollAmount() {
-        const containerWidth = scrollContainer.offsetWidth;
-        const pageWidth = scrollPages[0].offsetWidth;
-        const aspectRatio = window.innerWidth / window.innerHeight;
-
-        // Adjust the scroll amount based on the aspect ratio
-        if (aspectRatio > 1.5) {
-            // Wide screens
-            return pageWidth - (containerWidth * 0.2); // Scroll slightly less for smoother transitions
-        } else {
-            // Normal or narrow screens
-            return pageWidth;
-        }
-    }
-
-    // Add event listener to check scroll position
-    scrollContainer.addEventListener('scroll', function () {
-        if (scrollContainer.scrollLeft === 0) {
-            leftArrow.style.display = 'none'; // Hide left arrow
-        } else {
-            leftArrow.style.display = 'block'; // Show left arrow
-        }
-
-        if (scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth) {
-            rightArrow.style.display = 'none'; // Hide right arrow when at the end
-        } else {
-            rightArrow.style.display = 'block'; // Show right arrow
-        }
+    
+        if (scrollContainer.scrollLeft === 0) leftArrow.style.display = 'none';
+    
+        rightArrow.addEventListener('click', scrollNext);
+        leftArrow.addEventListener('click', scrollPrev);
+    
+        window.addEventListener('resize', createObserver);
     });
 
-    // Initial check on page load
-    if (scrollContainer.scrollLeft === 0) {
-        leftArrow.style.display = 'none';
-    }
-
-    // Attach event listeners to arrows
-    rightArrow.addEventListener('click', scrollNext);
-    leftArrow.addEventListener('click', scrollPrev);
-
-    // Recalculate observer and threshold on window resize
-    window.addEventListener('resize', function () {
-        createObserver(); // Recreate observer with updated threshold
-    });
-});
-
+    
 
 </script>
 
