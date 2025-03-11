@@ -1121,6 +1121,9 @@ article p:last-of-type {
     p {
         line-height: 1.5;
     }
+    header {
+        margin-bottom: 20px;
+    }
 }
 
 
