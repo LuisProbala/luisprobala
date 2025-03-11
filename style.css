@@ -2665,6 +2665,7 @@ margin-bottom: 13px;
     position: relative;
     height: 125%;
     border-top: solid black 1px;
+    cursor: pointer;
   }
   
   
@@ -2676,13 +2677,12 @@ margin-bottom: 13px;
     height: 50%;
     background-color: rgba(255, 255, 255, 0.51);
     border-radius: 4px;
-    cursor: pointer;
   }
   
   .minimap-marker {
     position: absolute;
     top: 0;
-   /* transform: translateX(-50%);*/
+   transform: translateX(-50%);
     width: 5%;
     height: 100%;
     background-color:rgba(255, 108, 0, 0.77);
@@ -3162,10 +3162,6 @@ padding: 1.3rem;
     background: white;
     color: #b5713b;
     padding: 9rem;
-    padding-top: 9rem;
-    padding-bottom: 9rem;
-    padding-top: 9rem;
-    padding-bottom: 9rem;
     min-width: 55ch;
     padding-top: 0rem;
     margin-top: -10rem;
@@ -3848,8 +3844,15 @@ p b{
         column-count: auto;
         align-self: end;
         background-color: rgb(253, 224, 182);
-        }
-    
+        font-size: .55rem;    
+    }
+    #ciep-headerback p:first-child{
+        font-size: .65rem;
+    }
+    #ciep-headerback-vertical h2 {
+        font-size: 10.5vh;
+    }
+        
         .minimap-container {
             bottom: 1rem;
             height: 10vh;
@@ -3864,6 +3867,31 @@ p b{
         .minimap-container {
             bottom: 1rem;
         }
+        .minimap-marker{
+            transform: translateX(-50%);  
+        }
+        .ciep-historic-note-1 {
+            margin-bottom: 0;
+
+
+        }
+        .ciep-historic-note-1-textframe p, .ciep-historic-note-2-textframe p {
+            hyphens: auto;
+            font-size: .55rem;
+            line-height: 1.5;
+            min-width: 65ch;
+            padding: 5.5rem;
+            padding-top: 7.5rem;
+        }
+        .ciep-historic-note-2-textframe h3{
+            font-size: .55rem;
+            padding: 2.5rem;
+            margin-top: 0;
+        }
+        .ciep-historic-note-1-textframe p:last-of-type {
+            display: none;
+        }
+
 }
 
 
