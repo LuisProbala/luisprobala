@@ -44,7 +44,15 @@
         
     <body id="nycte-scroll-body">
 
-       
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-circle"></div>
+        <p>Loading...</p>
+    </div>
+
+
+
+
 
         <div class="nycte-arrow-left" onclick="scrollPrev()">
             &lsaquo;
@@ -66,13 +74,13 @@
                 <section class="nycte-scroll-singlepage">
                     <div id="nycte-scroll-img-1" class="nycte-scroll-image-container">
                         <img src="images\1_2800px.jpg" alt="Page 1 Image">
-                        <figcaption>Lorem ipsum dolor sit.</figcaption>
+                        <figcaption></figcaption>
                     </div>
                 </section>
                 <section class="nycte-scroll-singlepage">
                     <div class="nycte-scroll-image-container">
                         <img id="nycte-scroll-img-2" src="images\2_2800px.jpg" alt="Page 2 Image">
-                        <figcaption>Lorem ipsum dolor sit.</figcaption>
+                        <figcaption></figcaption>
                     </div>
                 </section>
                 <section class="nycte-scroll-singlepage">
@@ -144,7 +152,7 @@
                 <section class="nycte-scroll-singlepage">
                     <div class="nycte-scroll-image-container" id="nycte-scroll-imgcont-12">
                         <img id="nycte-scroll-img-12" src="images\12_2800px.jpg" alt="Page 12 Image">
-                        <figcaption>Lorem ipsum dolor sit.</figcaption>
+                        <figcaption></figcaption>
                     </div>
 
                 </section>
@@ -189,7 +197,7 @@
                 <section class="nycte-scroll-singlepage">
                     <div class="nycte-scroll-image-container" id="nycte-scroll-imgcont-18">
                         <img id="nycte-scroll-img-18" src="images\18_2800px.jpg" alt="Page 18 Image">
-                        <figcaption>Lorem ipsum dolor sit.</figcaption>
+                        <figcaption></figcaption>
                     </div>
 
                 </section>
@@ -215,16 +223,25 @@
 
 
         <script>
+            // Wait for the entire window content to be loaded, including images
+            window.onload = function() {
+                // Hide the loading screen once everything is loaded
+                const loadingScreen = document.getElementById('loading-screen');
+                loadingScreen.style.display = 'none'; // Hide loading screen
+    
+                // Set the first image as active when page is fully loaded
+                document.querySelector("#nycte-scroll-img-1").setAttribute("id", "active-img");
+            };
+    
             document.addEventListener("DOMContentLoaded", function () {
                 const imageContainers = document.querySelectorAll(".nycte-scroll-singlepage");
                 const leftArrow = document.querySelector(".nycte-arrow-left");
                 const rightArrow = document.querySelector(".nycte-arrow-right");
                 const scrollContainer = document.querySelector(".nycte-scroll-container");
                 const scrollPages = document.querySelectorAll(".nycte-scroll-singlepage");
-            
+    
                 let observer;
-            
-                // Adjusted getThreshold to be more lenient based on aspect ratio
+    
                 function getThreshold() {
                     const aspectRatio = window.innerWidth / window.innerHeight;
                     if (aspectRatio > 2) {
@@ -235,7 +252,7 @@
                         return 0.95;  // Narrow screens, almost the whole image needs to be visible
                     }
                 }
-            
+    
                 function onIntersection(entries) {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -244,54 +261,54 @@
                         }
                     });
                 }
-            
+    
                 function createObserver() {
                     const observerOptions = {
                         root: null,
                         threshold: getThreshold()
                     };
-            
+    
                     if (observer) observer.disconnect();
-            
+    
                     observer = new IntersectionObserver(onIntersection, observerOptions);
-            
+    
                     imageContainers.forEach(container => observer.observe(container));
                 }
-            
+    
                 // Initially create the observer
                 createObserver();
-            
+    
                 if (window.scrollX > 0 || window.scrollY > 0) {
                     observer.observe(imageContainers[0]);
                 }
-            
+    
                 function scrollNext() {
                     const scrollAmount = calculateScrollAmount();
                     scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 }
-            
+    
                 function scrollPrev() {
                     const scrollAmount = calculateScrollAmount();
                     scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
                 }
-            
+    
                 function calculateScrollAmount() {
                     const activeImg = document.querySelector("#active-img");
                     if (!activeImg) return scrollPages[0].offsetWidth;
-            
+    
                     return activeImg.offsetWidth; // Ensures exact scroll per image
                 }
-            
+    
                 scrollContainer.addEventListener('scroll', function () {
                     leftArrow.style.display = scrollContainer.scrollLeft === 0 ? 'none' : 'block';
                     rightArrow.style.display = (scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth) ? 'none' : 'block';
                 });
-            
+    
                 if (scrollContainer.scrollLeft === 0) leftArrow.style.display = 'none';
-            
+    
                 rightArrow.addEventListener('click', scrollNext);
                 leftArrow.addEventListener('click', scrollPrev);
-            
+    
                 // Reinitialize the observer when window is resized
                 window.addEventListener('resize', function() {
                     createObserver();  // Reinitialize the observer on window resize
@@ -299,9 +316,10 @@
                 });
             });
         </script>
-        
+    
 
-
+    
+       
         </body>
     </html>
 

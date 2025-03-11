@@ -1936,6 +1936,46 @@ text-decoration: underline;
 
 
 
+
+/* Style the loading screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+}
+
+/* Create a spinning circle */
+.loading-circle {
+    border: 8px solid #f3f3f3; /* Light grey background */
+    border-top: 8px solid #3498db; /* Blue color for the circle */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+/* Animation to spin the circle */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-screen p {
+    color: #333;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px;
+}
+
+
+
 /*
 body.nyctehor-body, 
 html.nyctehor-body {
@@ -4020,6 +4060,7 @@ p b{
 */
 
 /* WOODWORK - DESKTOP */
+
 .wood-multicolumn-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -4029,7 +4070,7 @@ p b{
 }
 
 .wood-column {
-    flex: 1 1 16.66%; /* Six columns */
+    flex: 1 1 16.66%; /* Five columns */
     box-sizing: border-box;
 }
 
@@ -4080,12 +4121,14 @@ p b{
     font-weight: normal;
     margin-top: -.5rem;
     font-size: 1.3rem;
+    line-height: 1.5em;
    /* font-size: .75rem; */
   text-align: left;
   margin-bottom: 1.4rem;
   padding-left: .2rem;
   padding-right: .4rem;
   hyphens: auto;
+
 
 }
 
@@ -4171,9 +4214,34 @@ margin-top: 1rem;
 
 
 
+/* WOODWORK - SMALLER RES */
 
+@media screen and (max-width: 1920px)  {
 
+.wood-multicolumn-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+    gap: 1.4rem;
+}
 
+.wood-textframe p{
+    color: #808080;
+    font-family: "NectoMono";
+    text-align: center;
+    font-weight: normal;
+    margin-top: -.5rem;
+
+    font-size: .75rem;
+  text-align: left;
+  margin-bottom: 1.4rem;
+  padding-left: .2rem;
+  padding-right: .4rem;
+  hyphens: auto;
+}
+
+}
 
 
 
