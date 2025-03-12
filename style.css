@@ -3848,13 +3848,23 @@ p b{
         background-color: rgb(253, 224, 182);
         font-size: .55rem;    
     }
+	#ciep-headerback-sub-subtitle p:nth-of-type(1), #ciep-headerback-sub-subtitle p:nth-of-type(2), #ciep-headerback-sub-subtitle p:nth-of-type(3) {
+	font-size: .65rem;
+	}
+	#ciep-headerback-subtitle p:first-child{
+	font-size: .75rem;
+  	letter-spacing: .8;
+	}
     #ciep-headerback p:first-child{
         font-size: .65rem;
     }
     #ciep-headerback-vertical h2 {
         font-size: 10.5vh;
     }
-        
+.ciep-button-observatory{
+font-size: .75rem;
+  letter-spacing: .8;
+}
         .minimap-container {
             bottom: 1rem;
             height: 10vh;
@@ -3877,22 +3887,43 @@ p b{
 
 
         }
-        .ciep-historic-note-1-textframe p, .ciep-historic-note-2-textframe p {
-            hyphens: auto;
-            font-size: .55rem;
+ciep-historic-note-2-textframe p, .ciep-historic-note-1-textframe p {
+padding-top: 8.5vh;
+    padding-bottom: 20vh;
+	 hyphens: auto;
+            font-size: .575rem;
             line-height: 1.5;
             min-width: 65ch;
-            padding: 5.5rem;
-            padding-top: 7.5rem;
-        }
+	padding: 5.5rem;
+	
+}
+
+	.ciep-historic-note-2{
+		margin-bottom: 0vh;
+	}
+
+	
         .ciep-historic-note-2-textframe h3{
             font-size: .55rem;
             padding: 2.5rem;
             margin-top: 0;
+		display: none;
         }
         .ciep-historic-note-1-textframe p:last-of-type {
             display: none;
         }
+
+.ciep-historic-note-2 img {
+	padding-top: 21vh;
+}
+
+	.ciep-historic-note-1 img {
+	margin-bottom: 1.5vh;
+}
+
+
+
+	
 
 }
 
