@@ -3278,7 +3278,7 @@ p b{
 }
 
 #ciep-intertitle p:nth-of-type(1) {   
-    letter-spacing: normal;
+    letter-spacing:;
     font-family: "ApfelGrotezk", sans-serif;
 }
 
@@ -3920,11 +3920,51 @@ padding-top: 8.5vh;
 	.ciep-historic-note-1 img {
 	margin-bottom: 1.5vh;
 }
+.ciep-globo-4{
+	background:black;
+  height: auto;
+  margin-right: 2rem;
+  align-content: center;
+}
+	#globo-video {
+  position: relative;
+  width: 100%;
+  padding:0;
+  pointer-events: none;
+  margin-bottom: 15vh;
+	}
+.ciep-globo-4 video{
+	width: auto;
+  height: 67vh;
+}
+	.ciep-globo-5{
+		padding-bottom: 15vh;
+	}
 
+.ciep-globo-textframe-1 p, .ciep-globo-textframe-2 p{
+		font-size: .6rem;
+	}
+.ciep-globo-textframe-2, .ciep-globo-textframe-1{
+		padding: 1.4rem;
+	}
+.ciep-globo-manchete-slide img{
+		height: 71vh;
+	}
 
-
+	@supports (writing-mode: sideways-lr) {
+  .ciep-intertitle-2 p {
+	  padding: 0.35rem;
+	  padding-left: 0.3rem;
+	  font-size: 0.8rem
+	  padding-top: 25%;
+	  letter-spacing: .3;
+  }
+	}
+.ciep-intertitle p:last-of-type {
+font-size: .6rem;
+}
 	
-
+	
 }
 
 
