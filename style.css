@@ -332,7 +332,14 @@ footer {
     width: calc(100vw - 40px);*/
 }
 
-
+#mainheader {
+    position: relative;
+  width: 40vw;
+  align-self: center;
+  color: black;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+}
 
 footer {
 	padding-bottom: 2rem
@@ -426,7 +433,7 @@ footer {
   }
 
 
-
+  /*
 header {
     position: relative;
     width: calc(100vw - 40px);
@@ -438,7 +445,7 @@ header {
     margin-left: 12vw;
     color: black;
 	margin-top:;
-}
+} */
 
 .headerback{
 	width: calc(100vw - 40px);
@@ -491,9 +498,13 @@ header h1 {
 .introtext h4 {
 	font-family: 'Inconsolata', monospace;
 	text-align: left;
-	padding-top: 10px;
-	width: 74%;
+	padding-top: 3vw;
+	width: 100%;
     cursor: default;
+}
+
+#insta {
+color: black;
 }
 
 .single header {
@@ -536,6 +547,23 @@ header h1 {
 .black-noback h2:first-child  {
     border: 3px solid black;
 }
+
+
+/* INDEX - SMALLER RES */
+@media screen and (max-width: 1600px) {
+    .introtext h4 {
+        font-family: 'Inconsolata', monospace;
+        text-align: left;
+        padding-top: 3vw;
+        width: 100%;
+        cursor: default;
+        font-size: 1.44rem;
+    }
+    
+
+}
+
+
 
 /* HEADER */
 
@@ -1571,6 +1599,36 @@ text-decoration: underline;
 
 
 /* NYCTEROY - HORIZONTAL DESKTOP */
+
+.nycte-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: #1c1c1c;
+    color: white;
+
+}
+
+.nycte-intro-text p {
+    font-family: "NectoMono", sans-serif;
+  font-size: 1rem;
+  min-width: 50ch;
+  padding:5rem;
+  margin-left: 12rem;
+  hyphens: auto;
+  text-align: left;
+  margin-right: 2rem;
+    
+}
+
+.nycte-scroll-content section:first-of-type{
+    scroll-snap-align: end;
+  align-items: ;
+  justify-content: ;
+}
 
 #nycte-scroll-body {
     margin: 0;
