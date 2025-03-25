@@ -493,13 +493,14 @@ header h1 {
 
 .introtext {
     margin-bottom: 5px;
+    display: flex;
 }
 
 .introtext h4 {
 	font-family: 'Inconsolata', monospace;
 	text-align: left;
 	padding-top: 3vw;
-	width: 100%;
+	width: 100ch;
     cursor: default;
 }
 
