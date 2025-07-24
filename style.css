@@ -230,6 +230,10 @@ body {
     scrollbar-width: thin;
 }
 
+#index-body{
+    align-items: flex-start;
+}
+
 html{
     overflow-y: hidden;
 }
@@ -323,6 +327,10 @@ main {
     flex-direction: row;;        
 }
 
+.index-main {
+    margin-left: 7vw;
+}
+
 header,
 main,
 footer {
@@ -335,10 +343,11 @@ footer {
 #mainheader {
     position: relative;
   width: 40vw;
-  align-self: center;
+  align-self: end;
   color: black;
   text-align: -moz-center;
   text-align: -webkit-center;
+
 }
 
 footer {
@@ -369,38 +378,67 @@ footer {
 }
 
 
-
 .indexPreviewText {
     display: none;
     position: absolute;
-    top: 125%;
-    width: 22vw;
+    top: 65%;
+    width: 45vw;
     color: black;
     hyphens: auto;
+    text-align: left;
 }
 
 .filterPreview:nth-child(even) .indexPreviewText {
-    right: 107% !important
+    left: 105% !important
 }
 
 .filterPreview:nth-child(odd) .indexPreviewText {
-    left: 107% !important
+    left: 105% !important
 }
 
-.filterPreview:nth-child(n+4) .indexPreviewText {
-    top: auto;
-    bottom: 115%;
+.flags {
+    font-size: 2rem;
+    filter: grayscale(.56);
+    margin-top:;
+}
+
+#flags {
+    display: flex;
+    flex-direction: row;
+}
+
+h7{
+    padding-left: .33rem;
+  padding-right: .8rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1.05rem;
+  word-spacing: -0.33rem;
+
 }
 
 .indexPreviewText h1 {
     font-family: "Reenie Beanie";
-    font-size: 1.44rem;
+    font-size: 1.5rem;
     line-height: 1.35;
     text-align: justify;
     text-justify: inter-character;
     font-weight: lighter;
+    max-width: 33vw;
 }
 
+.indexPreviewText h3 {
+    font-family: "ApfelGrotezk", sans-serif;
+    font-size: 1.2vw;
+    line-height: 1.35;
+    text-align: justify;
+    text-justify: inter-character;
+    font-weight: lighter;
+    padding-bottom: 0.25rem;
+}
+
+#ciepsPreviewText h3, #nycteroyPreviewText h3 {
+    font-size: 1.1vw;
+}
   
   .projectlist li, header,
   footer, .headerback
@@ -410,7 +448,7 @@ footer {
 
     color: white;
     text-align: center;
-    width: 40vw;
+    width: 39.5vw;
     align-self: center;
     /*
     display: flex;
@@ -419,8 +457,8 @@ footer {
   }
   
   .projectlist li {
-    padding-bottom: 1.9%;
-    margin-bottom: 1.8%;
+    padding-bottom: 1.8%;
+    margin-bottom: 2%;
     -webkit-text-stroke: black 1px;
   }
 
@@ -492,16 +530,22 @@ header h1 {
 }
 
 .introtext {
-    margin-bottom: 5px;
     display: flex;
+    justify-content: end;
 }
 
 .introtext h4 {
-	font-family: 'Inconsolata', monospace;
-	text-align: left;
-	padding-top: 3vw;
-	width: 100ch;
+    font-family: 'Inconsolata', monospace;
+    text-align: left;
+    padding-top: 3vw;
+    width: 100ch;
     cursor: default;
+    padding-right: 5vw;
+  
+}
+
+.introtext i a {
+    font-size: 1.03rem;
 }
 
 #insta {
@@ -560,7 +604,7 @@ color: black;
         cursor: default;
         font-size: 1.44rem;
     }
-    
+     
 
 }
 
@@ -671,7 +715,7 @@ footer {
 }
 
 .projectlist li:hover {
-    background: rgb(235, 235, 235);
+    background: rgb(214, 214, 214);
     transition: all 100ms;
 
     cursor: pointer;
@@ -686,6 +730,22 @@ footer {
         -webkit-box-sizing: border-box;
 }
 
+.projectlist li:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -7vw;
+    width: 100vw; 
+    height: 100%; 
+    background: rgb(235, 235, 235);
+    z-index: -1; 
+    pointer-events: none; 
+  }
+
+
+/* INDEX TITLES - marquee animation */
+/*
+/* 
 
 li:hover h2,
 .headerback:hover h2 {
@@ -717,6 +777,10 @@ li:hover h2,
 .projectlist li:hover h2 {
     color: black;
 }
+
+
+/*
+
 
 
 /* INDEX TITLES - BLACK STROKE TYPO ON HOVER */
@@ -2633,7 +2697,7 @@ html.nyctehor-body {
     transition: all 0.3s ease;
    /*  transition: opacity 0.6s ease, visibility 0.6s ease; */
     position: absolute;
-    width: 100%;
+    width: 50%;
     height: 100%;
     max-width: 1800px;
     max-height: 1800px;
