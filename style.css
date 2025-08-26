@@ -396,6 +396,10 @@ footer {
     left: 105% !important
 }
 
+.name-links {
+    display: none;
+}
+
 .flags {
     font-size: 2rem;
     filter: grayscale(.56);
@@ -405,6 +409,7 @@ footer {
 #flags {
     display: flex;
     flex-direction: row;
+    justify-content: end;  
 }
 
 h7{
