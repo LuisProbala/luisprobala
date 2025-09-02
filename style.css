@@ -86,6 +86,54 @@ pointer-events: none;
 
 
 
+ /* Page content wrapper */
+    .app {
+      min-height: 100dvh;
+    }
+
+    /* Full-screen blocker shown on narrow viewports */
+    .mobile-blocker {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      /* Hide and disable the app on tablets/phones */
+      .app {
+        filter: blur(2px);
+        pointer-events: none;
+        user-select: none;
+        overflow: hidden;
+        height: 100dvh;
+      }
+      /* Show the overlay */
+      .mobile-blocker {
+        display: grid;
+        position: fixed;
+        inset: 0;
+        place-items: center;
+        padding: 2rem;
+        background: #111;
+        color: #fff;
+        font: 1rem/1.4 system-ui, sans-serif;
+        text-align: center;
+        z-index: 9999;
+      }
+      /* Optional: hide scrollbars */
+      html, body { height: 100%; overflow: hidden; }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 html,
 body,
 div,
@@ -4516,6 +4564,39 @@ margin-top: 1rem;
 }
 
 
+/* Specific H2 styling within header back */
+#apto1212-headerback h2:nth-child(3) {
+    font-size: 1rem;
+  text-align: end;
+  align-self: center;
+  margin-top: .25rem;
+  margin-right: .7rem;
+
+}
+
+#apto1212-headerback h2:nth-child(2) {
+    width: 100%;
+    color: black;
+    font-family: "ApfelGrotezk", sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    padding-left: .5rem;
+    padding-top: 0.1vw;
+    padding-bottom: .1vw;
+}
+
+#apto1212-headerback h2:nth-child(1) {
+    font-size: 1.2vw; /* You can adjust this size if needed */
+    justify-self: flex-start;
+    align-self: center;
+    padding-left: .75rem;
+}
+
+
+
 
 
 
@@ -4549,8 +4630,34 @@ margin-top: 1rem;
 }
 
 
+#apoie-header {
+    grid-column: 1/2;
+    grid-row: 1;
+    padding-top:;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+}
 
-
+#apoie-headerback {
+    font-size: 2.4vw;
+    width: 100%;
+    color: black;
+    font-family: "ApfelGrotezk", sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    background: #ecebeb;
+    position: relative;
+    transition: all 0.5s ease-in-out; /* Smooth transitions */
+    border-top:
+    .1rem solid black;
+      border-bottom:
+    .1rem solid black;
+}
 
 
 

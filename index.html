@@ -119,7 +119,8 @@
            </footer>
        
            
-    <main class="index-main">
+    <main class="index-main app">
+
 
         <ul class="projectlist projectlist-container">
 				
@@ -349,6 +350,23 @@
 
 
     </main>
+
+
+
+  <!-- Blocker shown only on small screens -->
+  <div class="mobile-blocker" aria-live="polite" role="alert">
+    <div>
+      <h2 style="margin:0 0 .5rem 0">This site is desktop-only</h2>
+      <p style="margin:0">Please open it on a laptop or desktop.</p>
+    </div>
+  </div>
+
+<script>
+  if (window.matchMedia("(max-width: 1024px)").matches) {
+    location.replace("/desktop-only.html"); // or show a lightweight message page
+  }
+</script>
+
 
     <script src="script.js"></script>
 
