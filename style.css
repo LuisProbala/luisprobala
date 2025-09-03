@@ -1343,11 +1343,19 @@ article p:last-of-type {
         font-size: 18px;
         line-height: 21px;
     }
+
+    
     .projectlist figure,
     h2:nth-child(2) {
         display: none;
         content-visibility: hidden;
     }
+
+      .nonindex h2:nth-child(2) {
+        display: block
+;        content-visibility: visible;
+    }
+
     .projectlist li:hover {
         background: black;
     }
@@ -5151,4 +5159,324 @@ width: auto;
         transition: all 0.3s ease;
 }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* APOIE LAST SOBREIRO - MOBILE */
+
+
+    @media (max-width: 1024px) {
+
+
+
+
+#headerback-sobreiro h2:nth-child(2) {
+    position: absolute;
+    top:0;
+    left: 167vw;
+    width: 100vw;
+}
+
+#headerback-sobreiro h2 {
+    animation-name: movesobreiro;
+    animation-duration: 16s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes movesobreiro {
+    from {
+        transform: translateX(0vw);
+    }
+    to {
+        transform: translateX(calc(-167vw + 5px));
+    }
+}
+
+#sobreiro-header {
+    white-space: nowrap;
+    margin-top:;
+    width: calc(100vw - 40px);
+    padding-top:1.5rem;
+    margin-bottom:.4rem;
+    color: white;
+    text-align: center;
+    white-space:;
+    align-self: auto;
+    margin-left:;
+    margin-top:0;
+    display: inline-block;
+}
+
+#headerback-sobreiro {
+ background: none;
+ position: relative;
+  color: black;
+  text-align: center;
+  display: block;
+  font-family: "ApfelGrotezk", sans-serif;
+}
+
+#headerback-sobreiro h2 {
+    color: black;
+    letter-spacing: normal;
+   }
+
+#headerback-sobreiro:hover h2 {
+    cursor: default;
+}
+
+
+#body-sobreiro {
+    display:;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+
+#body-sobreiro #single-footer {
+
+    width: calc(100vw - 40px);
+    margin-left: 0;
+}
+
+
+#body-sobreiro{
+    background: white;
+}
+
+
+
+
+
+
+/* SOBREIRO page slideshow containers */
+
+.sobreiro-slideshow-grid {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 60vh;
+    margin-bottom: .4rem;
+    background: black;
+    position: relative;
+
+  }
+
+ .sobreiro-slide-1 {
+    grid-column: 1/2;
+    position: relative;
+    margin: auto;
+    display:;
+  }
+
+.sobreiro-slide-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+.sobreiro-slide-3{
+    grid-column: 3/4;
+    position: relative;
+    margin: auto;
+    background: white;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Hide the images by default for the slideshow purposes
+.sobreiro-slides, .sobreiro-slides-mobile {
+    display: none;
+  }
+  */
+
+  .sobreiro-slides, .sobreiro-slides-mobile {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+   /*  transition: opacity 0.6s ease, visibility 0.6s ease; */
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    max-width: 1800px;
+    max-height: 1800px;
+}
+  
+  .sobreiro-slides.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.sobreiro-slides img {
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.sobreiro-georeferenced-pages-figure {
+float: left;
+margin-bottom: 13px;
+}
+
+#sobreiro-georeferenced-pages-first {
+    width: 75vw;
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+    margin-bottom: .4rem;
+}
+
+.sobreiro-mobile-1 {
+    display: none;
+   }
+
+   
+.sobreiro-slide-mobile {
+    width: 30vw;
+    position: relative;
+    margin: auto;
+}
+
+
+
+
+.apoie-projeto-text {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 14px;
+  margin-bottom: 80px;
+}
+
+.apoie-projeto-text h2 {
+  font-size: 16px;
+  
+  font-family: ;
+  margin-bottom: 10px;
+  color: #222;
+  text-align: center;
+}
+
+.apoie-projeto-text p {
+  margin-bottom: 12px;
+    font-family:"AlegreyaSans", sans-serif;
+    font-size: 16px;
+}
+
+.apoie-projeto-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.apoie-projeto-textn li {
+  margin-bottom: 8px;
+}
+
+.apoie-projeto-text a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.apoie-projeto-text a:hover {
+  text-decoration: underline;
+}
+
+
+
+    }
+
+    /* ARBORIZED - SMALLER RES */
+@media screen and (max-width: 1600px) {
+    #sobreiro-header{
+        padding-top:.8rem ;
+        margin-bottom:.25rem;
+    }
+}
+
+
+
+
+
+.text-dropdowns {
+  padding: 20px;
+  background: white;
+}
+
+.dropdown {
+  margin-bottom: 15px;
+}
+
+.dropdown-btn {
+  display: block;           /* always block-level, so it takes full width */
+  width: 93vw;              /* span entire parent container */
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  text-align: left;
+  font-family: "ApfelGrotezk", sans-serif;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;   /* ensures padding doesn't push it wider */
+}
+
+.dropdown-btn:after {
+  content: "+";
+  position: absolute;
+  right: 15px;
+}
+
+.dropdown-btn.active:after {
+  content: "-";
+}
+
+.dropdown-content p {
+    font-family:"AlegreyaSans", sans-serif;
+    font-size: 16px;
+    text-align: justify;
+  margin: 0;
+  hyphens: auto;
+}
+
+.dropdown-content {
+  display: none;
+  padding: 15px;
+  background: black;
+  max-height: none;       /* Allow full height */
+  overflow-y: visible;    /* Let content expand naturally */
+}
+
+.dropdown-content.show {
+  display: block;         /* Make it visible when active */
+}
+
+
+
 
