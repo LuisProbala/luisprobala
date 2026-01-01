@@ -1,26 +1,39 @@
 <html lang="en"><head>
 
-	
-	 <script>
+	<script>
+// Run IMMEDIATELY - don't wait for DOM
+(function() {
     const validKeys = ["nycteroy"];
     const key = new URLSearchParams(window.location.search).get('key');
     
     if (!validKeys.includes(key)) {
-        document.body.innerHTML = `
-            <div style="
-                text-align: center; 
-                padding: 100px; 
-                font-family: Arial, sans-serif;
-            ">
+        // Replace entire document immediately
+        document.documentElement.innerHTML = `
+            <html>
+            <head>
+                <title>Access Restricted</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                        padding: 100px;
+                        background: #f5f5f5;
+                    }
+                </style>
+            </head>
+            <body>
                 <h1>🔒 Private Preview</h1>
-                <p>This site is not publicly accessible.</p>
-                <p>Please use the provided access URL.</p>
-            </div>
+                <p>This site requires an access key.</p>
+                <p style="color: #666; font-size: 14px;">
+                    Add ?key=nycteroy to the URL
+                </p>
+            </body>
+            </html>
         `;
-        // Optional: Stop further scripts from running
-        throw new Error('Access denied');
+        document.close(); // Stop parsing
     }
-    </script>
+})();
+</script>
 	
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
