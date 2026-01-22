@@ -1,101 +1,4 @@
 
-
-	<script>
-// Run IMMEDIATELY - don't wait for DOM
-(function() {
-    const validKeys = ["nycteroy"];
-    const key = new URLSearchParams(window.location.search).get('key');
-    
-    if (!validKeys.includes(key)) {
-        // COMPLETELY replace the current document
-        document.open();
-        document.write(`
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Access Restricted</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 500px;
-            color: #333;
-        }
-        .lock-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 28px;
-        }
-        p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        .url-hint {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            font-family: 'Inconsolata', monospace;
-            margin-top: 20px;
-            font-size: 14px;
-            border-left: 4px solid #667eea;
-            word-break: break-all;
-        }
-        code {
-            background: #e9ecef;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Inconsolata', monospace;
-        }
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <div class="lock-icon">🔒</div>
-        <h1>Private Preview</h1>
-        <p>This website is in private preview mode and requires an access key.</p>
-        <p>Please contact the site administrator for access.</p>
-        
-        <div class="url-hint">
-            <strong>Access URL format:</strong><br>
-            <code>${window.location.origin}${window.location.pathname}?key=nycteroy</code>
-        </div>
-    </div>
-</body>
-</html>
-        `);
-        document.close();
-    }
-})();
-</script>
-
 <html lang="en"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -224,27 +127,44 @@
 
         <ul class="projectlist projectlist-container">
 				
-			<li data-size="6.23" class="filterDiv filterPreview photogrammetry" id="lastsobreiro">
+			<li data-size="5.77" class="filterDiv filterPreview photogrammetry" id="lastsobreiro">
 
                 <a href="apoie-projeto/index.html">
                         <h2>Last Sobreiro</h2>
                 </a>
 
+                <p class="project-tag">2024- <br> photography &amp; research</p>
+
                 <div id="lastsobreiroPreviewText" class="indexPreviewText">
                     <h3></h3>
-                    <h1>The content of the page goes online on 03/09/2025 14:00:00 (UTC+00:00)
+                    <h1>PHOTOGRAPHIC DOCUMENTATION OF THE CORK OAKS IN SOUTHERN PORTUGAL
                 </h1>
                <!--  Last Sobreiro is a photographic series documenting states of life and death of the species Quercus suber (cork oak) in southern Portugal, in a context of concern with the population decline due to prolonged droughts, forest fires, desertification, reduced resistance to pests, biotic stress and ineffective public policies — all aggravated by climate change.  -->
                 </div>
           
                 </li>
 
-            
-			<li data-size="9.186" class="filterDiv filterPreview photogrammetry" id="nycteroy">
+            <li data-size="6.647" class="filterDiv filterPreview craft" id="wood">
+
+                <a href="woodworks/woodwork.html">
+                        <h2>Woodworks</h2>                                                   
+                </a>
+
+                <p class="project-tag">2020- <br> crafts</p>
+
+                <div id="woodPreviewText" class="indexPreviewText">
+                    <h3>ARCHIVING WOODWORKING PROJECTS</h3>
+                    <h1>All sorts of carpentry projects, from small to considerable — furniture pieces to construction work. I reuse and restore discarded wood to improve the ever-changing living spaces of my migrant life, cultivating problem-solving skills and reaffirming my resilience in a late-capitalist world. Working with found material is inherently contextual — and although choices are shaped by limits, they often lead to unexpected solutions that deepen your appreciation for both the material and the object it becomes. Also, I do avoid screws, but I’m no carpenter.                       
+                </h1></div> 
+
+                
+			<li data-size="3.69" class="filterDiv filterPreview photogrammetry" id="nycteroy">
 
                 <a href="nycteroy/nycteroy.html">
-                        <h2>Nycteroy</h2>
+                        <h2>City Centre Nycteroy</h2>
                 </a>
+
+                <p class="project-tag">2020-2021 <br> photography / photogrammetry</p>
 
                 <div id="nycteroyPreviewText" class="indexPreviewText">
                     <h3>PHOTOGRAMMETRIC FRAGMENTS OF THE CENTRO DISTRICT IN NITEROI, RJ</h3>
@@ -258,34 +178,12 @@
 
                 </li>
 				
-
-            <li data-size="4.548" class="filterDiv filterPreview photography" id="arbo">
-
-                <a href="arborized\arbo.html">
-                        <h2>Arborized Society</h2>           
-                </a>
-
-                <div id="arboPreviewText" class="indexPreviewText">
-                    <h3>THE TREE BODY AS WITNESS TO URBAN TENSIONS</h3>
-                    <h1>Analog photography series documenting the tree stock in the streets of Rio de Janeiro, with short text forms inspired by speculative science fiction to reflect upon the relation between urban arborization and the human condition in the urban space.                  
-                </h1></div>
-
              <!--   <figure class="index-preview" id="arbo-preview">
                     <img id="arbo-random">
                 </figure>--> 
 
                 </li>
 
-
-            <li data-size="7.185" class="filterDiv filterPreview craft" id="wood">
-
-                <a href="woodworks/woodwork.html">
-                        <h2>Woodworks</h2>                                                   
-                </a>
-                <div id="woodPreviewText" class="indexPreviewText">
-                    <h3>ARCHIVING WOODWORKING PROJECTS</h3>
-                    <h1>All sorts of carpentry projects, from small to considerable — furniture pieces to construction work. I reuse and restore discarded wood to improve the ever-changing living spaces of my migrant life, cultivating problem-solving skills and reaffirming my resilience in a late-capitalist world. Working with found material is inherently contextual — and although choices are shaped by limits, they often lead to unexpected solutions that deepen your appreciation for both the material and the object it becomes. Also, I do avoid screws, but I’m no carpenter.                       
-                </h1></div> 
 
                <!-- <figure class="index-preview" id="wood-preview">    
                     <video class="lazy" autoplay="" muted="" loop="" playsinline="" width="1280" height="720">
@@ -296,12 +194,79 @@
 
                 </li>
                       
+				
+				<li data-size="2.37" class="filterDiv filterPreview research craft" id="voronoi">
+                
+                <a href="/voronoi/voronoi.html">
+                        <h2>Voronoi Mosaic / Urban Ociosity</h2><h2></h2>                                                                       
+                </a>
 
-			<li data-size="5.770" class="filterDiv filterPreview research " id="cieps">
+                <p class="project-tag">2020 <br> crafts &amp; research</p>
+
+                <div id="voronoiPreviewText" class="indexPreviewText"><h1>A bathroom wall tiling with the design being a direct transposition of a Voronoi diagram representing the spatial distribution of ociose and subutilized real estate in the surrounding neighborhood.  
+                </h1></div>
+
+                <!--<figure class="index-preview" id="voronoi-preview">
+                    <img src="/img/mosaico-gif-1s.gif" sizes="(max-width: 1024px) 100vw, 1024px" width="1024" height="682">
+                </figure>-->
+
+                </li>    
+
+
+            <li data-size="8.3" class="filterDiv filterPreview craft" id="apto">
+
+                <a href="apto1212/apto1212.html">
+                        <h2>Apto 1212</h2><h2></h2>
+                </a>
+
+                <p class="project-tag">2020-2021 <br> crafts &amp; performance</p>
+                
+
+                <div id="aptoPreviewText" class="indexPreviewText">
+                    <h3>TRANSFORMING A DERELICT OFFICE SPACE INTO A RESIDENTIAL UNIT</h3>
+                    <h1>The rehabilitation and remodeling into an airy penthouse apartment of a former 55m² office space in the building (edifício) ‘Lider’ on the vibrant and somewhat infamous Avenida Amaral Peixoto, with a sustainability-first approach, low budget, and a DIY attitude.                  
+                </h1></div>
+
+                </li>
+
+
+            <li data-size="4.278" class="filterDiv filterPreview photography" id="arbo">
+
+                <a href="arborized\arbo.html">
+                        <h2>Arborized Society</h2>           
+                </a>
+
+                <p class="project-tag">2019 <br> photography / text / webdesign</p>
+
+                <div id="arboPreviewText" class="indexPreviewText">
+                    <h3>THE TREE BODY AS WITNESS TO URBAN TENSIONS</h3>
+                    <h1>Analog photography series documenting the tree stock in the streets of Rio de Janeiro, with short text forms inspired by speculative science fiction to reflect upon the relation between urban arborization and the human condition in the urban space.                  
+                </h1></div>
+
+				
+
+ <!--
+                <li data-size="5.592" class="filterDiv filterPreview research" id="ocio">
+   
+                <a href="/peixoto/index.html">
+                        <h2>Urban Ociosity</h2>
+                </a>
+
+                <p class="project-tag">research</p>
+
+                <div id="ocioPreviewText" class="indexPreviewText"><h1>A visual reasearch and photography based approach to surveying the ociosity levels of urban real estate in the Centro district of Niteroi. Part of a wider research and master thesis by befriended civil engineering student.                      
+                </h1></div>
+
+                </li>
+-->                     
+
+			<li data-size="5.4" class="filterDiv filterPreview research " id="cieps">
 
                 <a href="cieps/cieps.html">
                         <h2>Enter the CIEP</h2><h2></h2>                                                    
                 </a>
+
+                <p class="project-tag">2018 <br> photography &amp; research</p>
               
                 <div id="ciepsPreviewText" class="indexPreviewText">
                     <h3>AN IMMERSIVE RESEARCH OF RIO DE JANEIRO'S SOCIALIST EDUCATIONAL LEGACY</h3>
@@ -313,49 +278,6 @@
                 </figure>-->
 
                 </li>
-				
-				
-            <li data-size="8.937" class="filterDiv filterPreview craft" id="apto">
-
-                <a href="apto1212/apto1212.html">
-                        <h2>Apto 1212</h2><h2></h2>
-                </a>
-                
-
-                <div id="aptoPreviewText" class="indexPreviewText">
-                    <h3>TRANSFORMING A DERELICT OFFICE SPACE INTO A RESIDENTIAL UNIT</h3>
-                    <h1>The rehabilitation and remodeling into an airy penthouse apartment of a former 55m² office space in the building (edifício) ‘Lider’ on the vibrant and somewhat infamous Avenida Amaral Peixoto, with a sustainability-first approach, low budget, and a DIY attitude.                  
-                </h1></div>
-
-                </li>
-
-
-                <li data-size="5.592" class="filterDiv filterPreview research" id="ocio">
-   
-                <a href="/peixoto/index.html">
-                        <h2>Urban Ociosity</h2>
-                </a>
-
-                <div id="ocioPreviewText" class="indexPreviewText"><h1>A visual reasearch and photography based approach to surveying the ociosity levels of urban real estate in the Centro district of Niteroi. Part of a wider research and master thesis by befriended civil engineering student.                      
-                </h1></div>
-
-                </li>
-
-
-				<li data-size="5.280" class="filterDiv filterPreview research craft" id="voronoi">
-                
-                <a href="/voronoi/voronoi.html">
-                        <h2>Voronoi Mosaic</h2><h2></h2>                                                                       
-                </a>
-
-                <div id="voronoiPreviewText" class="indexPreviewText"><h1>A bathroom wall tiling with the design being a direct transposition of a Voronoi diagram representing the spatial distribution of ociose and subutilized real estate in the surrounding neighborhood.  
-                </h1></div>
-
-                <!--<figure class="index-preview" id="voronoi-preview">
-                    <img src="/img/mosaico-gif-1s.gif" sizes="(max-width: 1024px) 100vw, 1024px" width="1024" height="682">
-                </figure>-->
-
-                </li>                         
 
 <!--  
                 <li data-size="4.43" class="filterDiv filterPreview research" id="ocio">
