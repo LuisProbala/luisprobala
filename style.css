@@ -438,11 +438,16 @@ footer {
 }
 
 .filterPreview:nth-child(even) .indexPreviewText {
-    left: 105% !important
+        left: 103%;
 }
 
 .filterPreview:nth-child(odd) .indexPreviewText {
-    left: 105% !important
+        left: 103%;
+}
+
+.projectlist li:hover .indexPreviewText {
+    display: block;
+    left: 103%;
 }
 
 .name-links {
@@ -483,12 +488,11 @@ h7{
 
 .indexPreviewText h3 {
     font-family: 'Inconsolata', monospace;
-    font-size: 1.2vw;
+    font-size: .9vw;
     line-height: 1.35;
     text-align: justify;
     text-justify: inter-character;
     font-weight: lighter;
-    padding-bottom: 0.25rem;
 }
 
 #ciepsPreviewText h3, #nycteroyPreviewText h3 {
