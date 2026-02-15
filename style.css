@@ -4294,7 +4294,7 @@ p b{
 }
 
 #voronoi-headerback {
-    font-size: 2vw;
+    font-size: 1.4vw;
     width: 100%;
     color: black;
     font-family: "ApfelGrotezk", sans-serif;
@@ -4307,6 +4307,7 @@ p b{
 
 #voronoi-headerback h2 {
     padding-right: .6rem;
+    padding-bottom: .1rem;
 }
 
 #voronoi-headerback-subtitle {
@@ -4373,31 +4374,41 @@ p b{
 
 .voronoi-slideshow-container-1 {
     grid-column: 2/3;
-    grid-row: 2/3;
+    grid-row: 3/4;
 }
 
 .voronoi-slideshow-container-3 {
     grid-column: 2/3;
-    grid-row: 4/5;
+    grid-row: 5/6;
 }
 
 .voronoi-slideshow-container-2 {
     grid-column: 2/4;
-    grid-row: 5/6;
+    grid-row: 6/7;
     display: flex;
     flex-direction: row;
     column-gap: 1rem;
 }
 
-.voronoi-slideshow-2, .voronoi-slideshow-0, .voronoi-slideshow-4, .voronoi-slideshow-5 {
-    flex-basis: 50%;
+.voronoi-slideshow-4 {
+
+flex-basis: 45.25%;
+}
+
+.voronoi-slideshow-2 {
+flex-basis: 56.25%;
+}
+
+.voronoi-slideshow-0{
+display: none;
 }
 
 .voronoi-slideshow-container-00 {
-    grid-column: 2/4;
-    grid-row: 6/7;
-    background: white;
-    padding: .1rem;
+    grid-column: 2/3;
+    grid-row: 4/5;
+    background: black;
+    /*! padding: .1rem; */
+    width: 143.5%;
 }
 
 .voronoi-slideshow-container-4 {
@@ -4406,6 +4417,7 @@ p b{
     display: flex;
     flex-direction: row;
     column-gap: 1rem;
+
 }
 
 .voronoi-slideshow-container-5 {
@@ -4415,7 +4427,7 @@ p b{
 
 .voronoi-video-container {
     grid-column: 2/4;
-    grid-row: 3/4;
+    grid-row: 2/3;
     position: relative;
     width: 100%;
     pointer-events: none;
@@ -4438,7 +4450,7 @@ p b{
     padding-left: 1rem;
     align-self: flex-start;
     grid-column: 3/4;
-    grid-row: 2/3;
+    grid-row: 3/4;
 }
 
 .voronoi-textframe-2 {
@@ -4446,15 +4458,15 @@ p b{
   padding-left: 1rem;
   align-self: start;
   grid-column: 3/4;
-  grid-row: 4/5;
+  grid-row: 5/6;
 }
 
 .voronoi-textframe-3 {
     text-align: justify;
     padding-left: 1rem;
-    align-self: start;
+    align-self: end;
     grid-column: 3/4;
-    grid-row: 11/12;
+    grid-row: 5/6;
 }
 
 
